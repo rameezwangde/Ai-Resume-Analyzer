@@ -1,5 +1,6 @@
 import React, { type FormEvent } from 'react'
 import {useState} from 'react'
+import FileUploader from '~/components/FileUploader';
 import Navbar from "~/components/Navbar";
 const upload = () => {
     const[isProcessing,setIsProcessing]=useState(false);
@@ -15,8 +16,8 @@ const upload = () => {
         const jobTitle=formData.get('job-title') as string;
         const jobDescription=formData.get('job-description') as string;
 
-        if(!file) return;
-        handleAnalyze({companyName,jobTitle,jobDescription,file});
+        if(!File) return;
+        // handleAnalyze({companyName,jobTitle,jobDescription,File});
     }
   return (
     <main className="bg-[url('/images/bg-main.svg')] bg-cover">
@@ -50,8 +51,8 @@ const upload = () => {
 
                             <div className="form-div">
                                 <label htmlFor="uploader">Upload Resume</label>
-                                <div>Uploader</div>
-                                {/* <FileUploader onFileSelect={handleFileSelect} /> */}
+                                {/* <div>Uploader</div> */}
+                                <FileUploader  />
                             </div>
 
                             <button className="primary-button" type="submit">
